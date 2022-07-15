@@ -127,132 +127,6 @@ $(document).ready(function () {
 
     sliderInit2();
 
-    // 3 слайдер
-
-    let helpers3 = {
-        addZeros: function (n) {
-            return '' + n;
-        }
-    };
-
-    function sliderInit3() {
-        let $slider = $('.slider.center');
-        $slider.each(function () {
-            let $sliderParent3 = $(this).parent();
-            $(this).slick({
-                centerMode: true,
-                centerPadding: "60px",
-                slidesToShow: 3,
-                asNavFor: '.slider-nav',
-                infinite: true,
-                responsive: [
-                    {
-                        breakpoint: 1170,
-                        settings: {
-                            arrows: false,
-                        }
-                    },{
-                        breakpoint: 900,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            // centerPadding: '40px',
-                            slidesToShow: 1
-                        }
-                    },
-                    ]
-            });
-            $('.slider-nav').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                asNavFor: '.center',
-                dots: false,
-                centerMode: true,
-                // focusOnSelect: true,
-                infinite: true,
-                // draggable: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 5,
-                        }
-                    },
-                    {
-                        breakpoint: 501,
-                        settings: {
-                            slidesToShow:3,
-                            centerMode: true,
-                            centerPadding: "0",
-                        }
-                    }
-                ]
-            });
-
-            if ($(this).find('.item').length > 1) {
-                $(this).siblings('.slides-numbers3').show();
-            }
-
-            $(this).on('afterChange', function (event, slick, currentSlide) {
-                $sliderParent3.find('.slides-numbers3 .active3').html(helpers3.addZeros(currentSlide + 1));
-            });
-
-            let sliderItemsNum3 = $(this).find('.slick-slide').not('.slick-cloned').length;
-            $sliderParent3.find('.slides-numbers3 .total3').html(helpers3.addZeros(sliderItemsNum3));
-
-        });
-    }
-
-    sliderInit3();
-//
-
-    $('.photos-more').click(function () {
-        $('.photos__slider .slick-slide').css('display', 'block');
-        $('.photos__slider .slick-slide.slick-cloned').css('display', 'none');
-        $('.photos__slider .slider-nav').css('margin-bottom', '107px');
-        $(this).css('display', 'none');
-    });
-
-    $('.photos__more .close').click(function () {
-        $('.photos__more').css('display', 'none');
-    });
-
-$('.popup1 .block').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-});
-
- //
-$('#block1').click(function (){
-    $('#popup1').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-$('#block2').click(function (){
-    $('#popup2').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-$('#block3').click(function (){
-    $('#popup3').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-$('#block4').click(function (){
-    $('#popup4').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-$('#block5').click(function (){
-    $('#popup5').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-$('#block6').click(function (){
-    $('#popup6').css('display', 'block');
-    $('.photos__more').css('display', 'block')
-});
-
-
-
-    //
-
 
     let btnText = $(".myBtn");
     let dots = $(".dots");
@@ -269,25 +143,38 @@ $('#block6').click(function (){
         dots.css('display', 'none');
         btnText.css('display', 'none');
 
+
         if ($(window).width() < 768 && $(window).width() > 600) {
             $('.text-review').css('height', '720px');
             $('#bg-review').css('height', '1078px');
-            $('.review .slick-arrow').css('margin-top', '600px');
+            setTimeout( ()  => {
+                $('.slider-holder2').slick('refresh');
+                $('.review .slick-arrow').css('margin-top', '600px');
+            }, 30);
         }
         if ($(window).width() < 601 && $(window).width() > 500) {
             $('.text-review').css('height', '830px');
             $('#bg-review').css('height', '1188px');
-            $('.review .slick-arrow').css('margin-top', '655px');
+            setTimeout( ()  => {
+                $('.slider-holder2').slick('refresh');
+                $('.review .slick-arrow').css('margin-top', '655px');
+            }, 30);
         }
         if ($(window).width() < 501 && $(window).width() > 424) {
             $('.text-review').css('height', '960px');
             $('#bg-review').css('height', '1318px');
-            $('.review .slick-arrow').css('margin-top', '720px');
+            setTimeout( ()  => {
+                $('.slider-holder2').slick('refresh');
+                $('.review .slick-arrow').css('margin-top', '720px');
+            }, 30);
         }
         if ($(window).width() < 425 && $(window).width() > 319) {
             $('.text-review').css('height', '1130px');
             $('#bg-review').css('height', '1488px');
-            $('.review .slick-arrow').css('margin-top', '805px');
+            setTimeout( ()  => {
+                $('.slider-holder2').slick('refresh');
+                $('.review .slick-arrow').css('margin-top', '805px');
+            }, 30);
         }
 
     });
@@ -305,10 +192,10 @@ $('#block6').click(function (){
         $('.order-popup').css('display', 'none');
     });
 
-    let hasError = false;
     $('#order-button').click(function () {
         let name = $('#order-name');
         let phone = $('#order-phone');
+        let hasError = false;
         $('.error-input').hide();
         name.css('border-color', 'transparent');
         phone.css('border-color', 'transparent');
@@ -345,6 +232,7 @@ $('#block6').click(function (){
     $('.consultation .container .block form div button').click(function () {
         let name = $('#consultation-name');
         let phone = $('#consultation-phone');
+        let hasError = false;
         $('.error-input-consultation').hide();
         name.css('border-color', 'transparent');
         phone.css('border-color', 'transparent');

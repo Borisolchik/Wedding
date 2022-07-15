@@ -699,7 +699,7 @@
 
       .image {
         width: 460px;
-
+        top: -3px;
         img {
         }
       }
@@ -2288,9 +2288,7 @@
     .order {
       flex-direction: column;
       width: 738px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 30px;
+      margin: 30px auto;
       .close {
         &:hover {
         }
@@ -2455,7 +2453,7 @@
               font-family: "Monotype Corsiva", sans-serif;
               color: rgb(84, 48, 14);
               text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             .two {
               margin-left: 10px;
             }
@@ -2471,11 +2469,13 @@
             right: 67px;
           }
           .item {
-            margin-bottom: 20px;
             .link {
                 font-size: 14px;
                 font-family: "Gilroy Regular", sans-serif;
                 color: rgb(38, 30, 19);
+              display: inline-block;
+              width: 100%;
+              padding: 10px 0;
             }
           }
           .menu__close {
@@ -3189,7 +3189,7 @@
   .order-popup {
     .order {
       width: 395px;
-      height: 720px;
+      height: unset;
       .close {
         &:hover {
         }
